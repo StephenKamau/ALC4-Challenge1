@@ -3,9 +3,6 @@
     <string name="welcome_message">Welcome to ALC 4.0</string>
     <string name="about_alc">About ALC</string>
     <string name="my_profile">My Profile</string>
-    <string name="toolbar_title_a">ALC 4 Phase 1</string>
-    <string name="toolbar_title_b">About ALC</string>
-    <string name="toolbar_title_c">My Profile</string>
     <string name="profile_name">Stephen K</string>
     <string name="track">Track:</string>
     <string name="country">Country:</string>
@@ -18,4 +15,7 @@
     <string name="phone_number">254700104490</string>
     <string name="slack_username_value">\@Stephen K</string>
     <string name="image_description">Profile Image</string>
+    <string name="toolbar_title_a">ALC 4 Phase 1</string>
+    <string name="toolbar_title_b">About ALC</string>
+    <string name="toolbar_title_c">My Profile</string>
 </resources>

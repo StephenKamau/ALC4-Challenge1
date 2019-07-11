@@ -32,17 +32,28 @@ public class AboutALCActivity extends AppCompatActivity {
         setTitle(R.string.toolbar_title_b);
 
         aboutALCWebView = findViewById(R.id.wbview_about_alc);
-        WebSettings webSettings = aboutALCWebView.getSettings();
-        webSettings.setJavaScriptEnabled(true);
+        loadUrl();
 
-        aboutALCWebView.setWebViewClient(new WebViewClient() {
-            @Override
-            public void onReceivedSslError(WebView view, SslErrorHandler handler, SslError error) {
-                handler.proceed();
-            }
-        });
+    }
 
-        aboutALCWebView.loadUrl(ABOUT_ALC_URL);
+    private void loadUrl() {
+
+        if (aboutALCWebView != null) {
+            WebSettings webSettings = aboutALCWebView.getSettings();
+            webSettings.setJavaScriptEnabled(true);
+
+            aboutALCWebView.setWebViewClient(new WebViewClient() {
+                @Override
+                public void onReceivedSslError(WebView view, SslErrorHandler handler, SslError error) {
+                    handler.proceed();
+                }
+            });
+
+            aboutALCWebView.loadUrl(ABOUT_ALC_URL);
+
+        } else {
+            Log.d("WebView", "Null WebView");
+        }
     }
 
 }
