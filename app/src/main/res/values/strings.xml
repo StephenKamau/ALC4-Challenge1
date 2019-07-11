@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">ALC4</string>
+    <string name="welcome_message">Welcome to ALC 4.0</string>
+    <string name="about_alc">About ALC</string>
+    <string name="my_profile">My Profile</string>
+    <string name="toolbar_title_a">ALC 4 Phase 1</string>
+    <string name="toolbar_title_b">About ALC</string>
+    <string name="toolbar_title_c">My Profile</string>
+</resources>
