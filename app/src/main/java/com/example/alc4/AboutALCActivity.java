@@ -13,6 +13,7 @@ import android.webkit.PermissionRequest;
 import android.webkit.SslErrorHandler;
 import android.webkit.WebResourceError;
 import android.webkit.WebResourceRequest;
+import android.webkit.WebResourceResponse;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
@@ -57,18 +58,12 @@ public class AboutALCActivity extends AppCompatActivity {
 
                 @Override
                 public void onReceivedError(WebView view, WebResourceRequest request, WebResourceError error) {
-                    Snackbar snackbar = Snackbar.make(findViewById(R.id.about_alc_coordinator_layout),
-                            R.string.load_error, Snackbar.LENGTH_INDEFINITE);
-                    snackbar.setAction(R.string.retry, new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            aboutALCWebView.setVisibility(View.INVISIBLE);
-                            mProgressBar.setVisibility(View.VISIBLE);
-                            loadUrl();
-                        }
-                    });
+                    displaySnackBar();
+                }
 
-                    snackbar.show();
+                @Override
+                public void onReceivedHttpError(WebView view, WebResourceRequest request, WebResourceResponse errorResponse) {
+                    displaySnackBar();
                 }
 
                 @Override
@@ -83,6 +78,21 @@ public class AboutALCActivity extends AppCompatActivity {
         } else {
             Log.d("WebView", "Null WebView");
         }
+    }
+
+    private void displaySnackBar() {
+        Snackbar snackbar = Snackbar.make(findViewById(R.id.about_alc_coordinator_layout),
+                R.string.load_error, Snackbar.LENGTH_INDEFINITE);
+        snackbar.setAction(R.string.retry, new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                aboutALCWebView.setVisibility(View.INVISIBLE);
+                mProgressBar.setVisibility(View.VISIBLE);
+                loadUrl();
+            }
+        });
+
+        snackbar.show();
     }
 
 }
