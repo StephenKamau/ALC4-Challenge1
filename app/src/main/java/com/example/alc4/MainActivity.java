@@ -21,13 +21,27 @@ public class MainActivity extends AppCompatActivity {
         btnLoadAboutALC.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                loadAboutALC();
+                loadAboutALCActivity();
+            }
+        });
+
+
+        btnLoadProfile = findViewById(R.id.btn_profile);
+        btnLoadProfile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                loadProfileActivity();
             }
         });
     }
 
-    private void loadAboutALC() {
-        Intent aboutALCIntent = new Intent(this,AboutALCActivity.class);
+    private void loadProfileActivity() {
+        Intent profileIntent = new Intent(this, ProfileActivity.class);
+        startActivity(profileIntent);
+    }
+
+    private void loadAboutALCActivity() {
+        Intent aboutALCIntent = new Intent(this, AboutALCActivity.class);
         startActivity(aboutALCIntent);
     }
 }
