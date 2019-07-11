@@ -19,4 +19,5 @@
     <string name="toolbar_title_b">About ALC</string>
     <string name="toolbar_title_c">My Profile</string>
     <string name="retry">Retry</string>
+    <string name="load_error">Failed to Load Page</string>
 </resources>

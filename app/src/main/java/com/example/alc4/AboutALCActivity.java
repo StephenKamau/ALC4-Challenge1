@@ -56,6 +56,20 @@ public class AboutALCActivity extends AppCompatActivity {
                 }
 
                 @Override
+                public void onReceivedError(WebView view, WebResourceRequest request, WebResourceError error) {
+                    Snackbar snackbar = Snackbar.make(findViewById(R.id.about_alc_coordinator_layout),
+                            R.string.load_error, Snackbar.LENGTH_INDEFINITE);
+                    snackbar.setAction(R.string.retry, new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            loadUrl();
+                        }
+                    });
+
+                    snackbar.show();
+                }
+
+                @Override
                 public void onPageStarted(WebView view, String url, Bitmap favicon) {
                     mProgressBar.setVisibility(View.INVISIBLE);
                     aboutALCWebView.setVisibility(View.VISIBLE);
