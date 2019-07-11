@@ -62,6 +62,8 @@ public class AboutALCActivity extends AppCompatActivity {
                     snackbar.setAction(R.string.retry, new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
+                            aboutALCWebView.setVisibility(View.INVISIBLE);
+                            mProgressBar.setVisibility(View.VISIBLE);
                             loadUrl();
                         }
                     });
