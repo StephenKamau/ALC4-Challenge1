@@ -18,4 +18,5 @@
     <string name="toolbar_title_a">ALC 4 Phase 1</string>
     <string name="toolbar_title_b">About ALC</string>
     <string name="toolbar_title_c">My Profile</string>
+    <string name="retry">Retry</string>
 </resources>
