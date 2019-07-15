@@ -57,7 +57,7 @@ public class AboutALCActivity extends AppCompatActivity {
             aboutALCWebView.setWebViewClient(new WebViewClient() {
                 @Override
                 public void onReceivedSslError(WebView view, SslErrorHandler handler, SslError error) {
-                    showAlertDialog(handler, error);
+                    showAlertDialog(handler);
                 }
 
                 @Override
@@ -100,7 +100,7 @@ public class AboutALCActivity extends AppCompatActivity {
     }
 
 
-    public void showAlertDialog(final SslErrorHandler handler, SslError error) {
+    public void showAlertDialog(final SslErrorHandler handler) {
         AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
 
         alertDialogBuilder.setMessage(R.string.ssl_error);
