@@ -19,5 +19,8 @@
     <string name="toolbar_title_b">About ALC</string>
     <string name="toolbar_title_c">My Profile</string>
     <string name="retry">Retry</string>
+    <string name="ssl_error">Ssl Error encountered, proceed with caution</string>
     <string name="load_error">Oops! An error occurred!</string>
+    <string name="proceed">Continue</string>
+    <string name="cancel">Cancel</string>
 </resources>

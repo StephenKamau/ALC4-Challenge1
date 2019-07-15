@@ -1,7 +1,10 @@
 package com.example.alc4;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.net.http.SslError;
@@ -10,6 +13,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.webkit.PermissionRequest;
+import android.webkit.RenderProcessGoneDetail;
 import android.webkit.SslErrorHandler;
 import android.webkit.WebResourceError;
 import android.webkit.WebResourceRequest;
@@ -53,7 +57,7 @@ public class AboutALCActivity extends AppCompatActivity {
             aboutALCWebView.setWebViewClient(new WebViewClient() {
                 @Override
                 public void onReceivedSslError(WebView view, SslErrorHandler handler, SslError error) {
-                    handler.proceed();
+                    showAlertDialog(handler, error);
                 }
 
                 @Override
@@ -95,4 +99,27 @@ public class AboutALCActivity extends AppCompatActivity {
         snackbar.show();
     }
 
+
+    public void showAlertDialog(final SslErrorHandler handler, SslError error) {
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
+
+        alertDialogBuilder.setMessage(R.string.ssl_error);
+        alertDialogBuilder.setCancelable(false);
+
+        alertDialogBuilder.setPositiveButton(R.string.proceed, new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) {
+                handler.proceed();
+            }
+        });
+
+        alertDialogBuilder.setNegativeButton(R.string.cancel, new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) {
+                handler.cancel();
+                mProgressBar.setVisibility(View.INVISIBLE);
+                displaySnackBar();
+            }
+        });
+
+        alertDialogBuilder.show();
+    }
 }
